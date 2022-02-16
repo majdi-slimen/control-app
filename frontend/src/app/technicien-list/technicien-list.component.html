@@ -1,0 +1,58 @@
+
+<div class="container-fluid">
+    <div class="title">
+    </div>
+      <div class="col-lg-12 well">
+       <div class="row">
+         <div class="col-lg-12 ml-auto mr-auto">
+            <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="text-center">id</th>
+                        <th> Nom</th>
+
+
+                        <th class="text-right">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let technicien of techniciens | async; let i=index">
+                        <td class="text-center">{{technicien.id}}</td>
+
+                         <td>{{technicien.nom}}</td>
+
+
+                        <td class="td-actions text-right">
+                           <a
+                           [routerLink]="['/edit_technicien',technicien.id]"
+                            class="btn btn-success btn-sm">
+                       <span class="glyphicon glyphicon-pencil"></span> Modifier
+
+                           </a>
+                            <button (click)="deletetechnicien(technicien.id)"
+                                    class="btn btn-danger btn-sm">
+                       <span class="glyphicon glyphicon-remove"></span> Remove
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                       <div class="text-right">
+                         <td>        </td>
+                      <td>
+
+                           <a
+                           [routerLink]="['/add_technicien']"
+                           class="btn btn-info btn-sm">
+                        <span class="glyphicon glyphicon-plus"></span>Ajouter
+
+                           </a>
+                      </td>
+                       </div></tr>
+                </tbody>
+            </table>
+            </div>
+     </div>
+  </div>
+  </div>
+</div>

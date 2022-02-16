@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Moniteurs Records</title>
+{% load static %}
+    <link rel="stylesheet" href="{% static  'css/style.css' %}"/>
+
+</head>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Home</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/equips/show">Liste des équipements</a></li>
+      <li><a href="/equips/show_panne">Liste des pannes</a></li>
+      <li><a href="/equips/show_technicien">Liste des techniciens</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-in"></span> Log-out</a></li>
+      <li><a href="/admin"><span class="glyphicon glyphicon-log-in"></span> Admin</a></li>
+
+    </ul>
+  </div>
+</nav>
+
+
+<table id="customers">
+    <thead class="thead-dark">
+    <tr>
+        <th>ip_address</th>
+        <th>nature</th>
+        <th>date de panne</th>
+        <th>date de reparation</th>
+        <th>technicien</th>
+        <th>remarque</th>
+        <th>Actions</th>
+
+
+    </tr>
+    </thead>
+    <tbody class="table">
+    {% for panne in pannes %}
+    <tr>
+        <td>{{ panne.ip }}</td>
+        <td>{{ panne.nature }}</td>
+        <td>{{ panne.date_panne }}</td>
+        <td>{{ panne.date_reparation }}</td>
+        <td>{{ panne.technicien }}</td>
+        <td>{{ panne.remarque }}</td>
+
+        <td><b>
+             <form action="/equips/update_panne/{{ panne.id}}" >
+            <input type="submit" class="btn btn-success" value="Modifier">
+            </form>
+            <form action="/equips/delete_panne/{{ panne.id}}" >
+            <input type="submit" class="btn btn-danger" value="Supprimer">
+            </form>
+        </b>
+
+        </td>
+    </tr>
+{% endfor %}
+    </tbody>
+</table>
+<br>
+<center>
+<form action="/equips/panne" >
+    <input type="submit" class="btn-primary" value="Ajouter">
+</form></center>
+<!--<center><form action="/equips/show" >-->
+<!--    <input type="submit" class="btn-primary" value="LISTE DES EQUIPEMENTS">-->
+<!--</form></center>-->
+<!--<center><form action="/equips/show_technicien" >-->
+<!--    <input type="submit" class="btn-primary" value="LISTE DES TECHNICIENS">-->
+<!--</form></center>-->
+</body>
+</html>

@@ -1,0 +1,19 @@
+<body>
+
+<div class="bg"></div>
+  <button  class="btn btn-primary" type="submit" onclick="logout()">Logout</button>
+<button (click)="logout()"
+
+                            type="button" rel="tooltip" class="btn btn-primary btn-just-icon btn-sm"
+                                  data-original-title="" title="" style="margin-left:10px;" >
+                              <i class="material-icons"> logout</i>
+                          </button>
+<p class="py-5 text-center"></p>
+<h1>Hi {{currentUser.firstName}}!</h1>
+<ul>
+    <li *ngFor="let user of users">
+        {{user.username}} ({{user.firstName}} {{user.lastName}})
+        - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a>
+    </li>
+</ul>
+    </body>

@@ -1,0 +1,22 @@
+
+<div class="container-fluid">
+  <h3 *ngIf="success">Succesfully updated!</h3>
+  <div class="container-fluid ">
+      <div class="row well center">
+         <form (ngSubmit)="onSubmit()" >
+           <div class="col-sm-12">
+               <div *ngIf="technicien" class="row">
+                  <div class="col-sm-6 form-group">
+                     <label>Nom</label>
+                     <input type="text" class="form-control" name="fligh_no" [(ngModel)]="technicien.nom">
+
+                  </div>
+
+             <button type="submit" class="btn btn-lg btn-info"> Submit</button>
+            </div>
+            </div>
+         </form>
+      </div>
+   </div>
+</div>
+

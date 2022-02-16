@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/app",
+    "types": []
+  },
+  "files": [
+    "src/main.ts",
+    "src/polyfills.ts",
+    "node_modules/zone.js/lib/zone-spec/long-stack-trace.d.ts"
+  ],
+  "include": [
+    "src/**/*.d.ts"
+  ]
+}

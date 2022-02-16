@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Panne</title>
+
+{% load static %}
+    <link rel="stylesheet" href="{% static  'css/style.css' %}"/>
+
+</head>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Home</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/equips/show">Liste des équipements</a></li>
+      <li><a href="/equips/show_panne">Liste des pannes</a></li>
+      <li><a href="/equips/show_technicien">Liste des techniciens</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-in"></span> Log-out</a></li>
+      <li><a href="/admin"><span class="glyphicon glyphicon-log-in"></span> Admin</a></li>
+
+    </ul>
+  </div>
+</nav>
+
+<body>
+<form method="POST" class="post-form" action="/equips/panne/">
+        {% csrf_token %}
+    <div class="container">
+<br>
+    <div class="form-group row">
+    <label class="col-sm-1 col-form-label"></label>
+    <div class="col-sm-4">
+    <h3>Enter Details de Panne</h3>
+    </div>
+  </div>
+         <div class="form-group row">
+    <label class="col-sm-2 col-form-label">ip_address</label>
+    <div class="col-sm-4">
+      {{ form.ip }}
+    </div>
+  </div>
+
+
+
+    <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Nature</label>
+    <div class="col-sm-4">
+      {{ form.nature }}
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">date de panne </label>
+    <div class="col-sm-4">
+      {{ form.date_panne }}
+    </div>
+  </div>
+    <div class="form-group row">
+    <label class="col-sm-2 col-form-label">date de reparation</label>
+    <div class="col-sm-4">
+      {{ form.date_reparation }}
+    </div>
+  </div>
+    <div class="form-group row">
+    <label class="col-sm-2 col-form-label">technicien</label>
+    <div class="col-sm-4">
+      {{ form.technicien }}
+    </div>
+  </div>
+      <div class="form-group row">
+    <label class="col-sm-2 col-form-label">remarque</label>
+    <div class="col-sm-4">
+      {{ form.remarque }}
+    </div>
+  </div>
+
+    <div class="form-group row">
+    <label class="col-sm-1 col-form-label"></label>
+    <div class="col-sm-4">
+    <center><button type="submit" class="btn btn-primary">Ajouter</button></center>
+    </div>
+  </div>
+    </div>
+</form>
+</body>
+</html>

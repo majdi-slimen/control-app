@@ -1,0 +1,105 @@
+
+<div class="container-fluid">
+    <div class="title">
+    </div>
+      <div class="col-lg-12 well">
+       <div class="row">
+         <div class="col-lg-12 ml-auto mr-auto">
+            <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="text-center">id</th>
+                        <th>Address ip</th>
+                        <th>Nom</th>
+                        <th>Emplacement</th>
+
+                        <th>Address mac</th>
+
+                        <th>Switch</th>
+                        <th>Num port </th>
+                        <th>Nbre ports </th>
+                        <th>Etat</th>
+                        <th>Aeroport</th>
+                        <th class="text-right">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let equip of equips | async; let i=index">
+                        <td class="text-center">{{equip.id}}</td>
+
+                         <td>{{equip.ip_add}}</td>
+                         <td>{{equip.nom}}</td>
+                         <td>{{equip.emplacement}}</td>
+                          <td> {{equip.mac_add}}</td>
+
+                          <td>{{equip.switch}}</td>
+                          <td>{{equip.num_port}}</td>
+                          <td>{{equip.nbre_port}}</td>
+                           <td class="etat">{{equip.etat}}</td>
+                         <td>{{equip.aeroport}}</td>
+                        <td class="td_image">
+                           <a
+                           [routerLink]="['/edit_equip',equip.id]"
+                           class="btn btn-success btn-sm">
+                       <span class="glyphicon glyphicon-pencil"></span> Modifier
+
+
+                           </a>
+                            <button (click)="deleteequip(equip.id)"
+                                    class="btn btn-danger btn-sm">
+                       <span class="glyphicon glyphicon-remove"></span> Remove
+                            </button>
+                           <button (click)="shutdown()"
+                                   class="btn btn-info btn-sm">
+                              <span class="glyphicon glyphicon-repeat"></span> Restart
+                          </button>
+                        </td>
+                    </tr>
+                    <tr>
+                       <div class="text-right">
+                         <td>        </td>
+                      <td>
+
+                           <a
+                           [routerLink]="['/add_equip']"
+                           class="btn btn-info btn-sm">
+                        <span class="glyphicon glyphicon-plus"></span>Ajouter
+
+                           </a>
+                      </td>
+<!--                      <td>-->
+<!--                          <button-->
+<!--                          (click)="deleteAllequips()"-->
+<!--                            type="button" rel="tooltip" class="btn btn-danger btn-just-icon btn-lg"-->
+<!--                                  data-original-title="" title="" style="margin-left:10px;" >-->
+<!--                              <i class="material-icons">Delete All</i>-->
+<!--                          </button>-->
+<!--                      </td>-->
+                         <td>
+<!--                        </div>-->
+<!--                        <div class="text-right">-->
+                           <button (click)="ping()"  (click)="refresh()"
+
+                            type="button" rel="tooltip" class="btn btn-danger btn-just-icon btn-sm"
+                                  data-original-title="" title="" style="margin-left:10px;" >
+                              <i class="material-icons">  equips-down</i>
+                          </button>
+<!--                          <button (click)="refresh()">Refresh</button>-->
+                        </td>
+
+                        </div>
+                    </tr>
+                </tbody>
+            </table>
+<!--              <p>Ton ip address: {{ query }}</p>-->
+<!--<p>ton région: {{ country }}</p>-->
+<!--<p>ton isp: {{ isp }}</p>-->
+<!--<p>ton timezone: {{ timezone }}</p>-->
+
+            </div>
+     </div>
+  </div>
+  </div>
+</div>
+<!--<p-rating [(ngModel)]="val"></p-rating>-->

@@ -1,0 +1,113 @@
+<!-- templates/home.html-->
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+{% load static %}
+    <link rel="stylesheet" href="{% static  'css/style.css' %}"/>
+</head>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+
+
+<!--{% block title %}Home{% endblock %}-->
+
+{% block content %}
+
+
+{% if user.is_authenticated %}
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Home</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/equips/show">Liste des équipements</a></li>
+      <li><a href="/equips/show_panne">Liste des pannes</a></li>
+      <li><a href="/equips/show_technicien">Liste des techniciens</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-in"></span> Log-out</a></li>
+      <li><a href="/admin"><span class="glyphicon glyphicon-log-in"></span> Admin</a></li>
+
+    </ul>
+  </div>
+</nav>
+<body class="tav">
+<div class="">
+    <div class="d-flex justify-content-center h-100">
+        <div class="card">
+
+    <div class="card-header">
+ <h1> utilisateur::  {{ user.username }}</h1>
+<!--<form >-->
+<!--            <input type="submit" onclick="redirect()" class="button2" value="controler les équipements">-->
+<!--            </form>-->
+<!--<form action="/accounts/logout" >-->
+<!--            <input type="submit" class="button2" value="Logout">-->
+<!--            </form>-->
+<h1><script type = "text/javascript">
+    // Use of Date.now() method
+  var d = Date(Date.now());
+
+  // Converting the number of millisecond
+  // in date string
+  a = d.toString()
+
+  // Printing the current date
+  document.write("Date : " + a)
+
+      </script></h1>
+    </div>
+    </div>
+    </div>
+    </div>
+
+<script>
+            var redirect = function() {
+                 setTimeout(function(){
+                     window.location.href = 'http://localhost:8000/equips/show';
+                     }, 1);
+                 };
+        </script>
+ </body>
+{% else %}
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Home</a>
+    </div>
+    <ul class="nav navbar-nav">
+        <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+
+
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+<!--      <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-in"></span> Log-out</a></li>-->
+      <li><a href="/admin"><span class="glyphicon glyphicon-log-in"></span> Admin</a></li>
+
+    </ul>
+  </div>
+</nav>
+<body class="tav">
+  <h1>.</h1>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<p>.</p>
+<!--<br>-->
+<!--<form action="/accounts/login" >-->
+<!--            <input type="submit" class="button2" value="Login">-->
+<!--            </form>-->
+
+{% endif %}
+{% endblock %}
+</body>
+</html>

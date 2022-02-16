@@ -1,0 +1,80 @@
+
+<div class="container-fluid">
+  <h3 *ngIf="success">Succesfully created!</h3>
+   <div class="container-fluid ">
+      <div class="row well center">
+         <form (ngSubmit)="onSubmit()" >
+            <div class="col-sm-12">
+              <div class="row">
+                  <div class="col-sm-6 form-group">
+                     <label>address ip</label>
+                     <input type="text" class="form-control" name="ip_add" [(ngModel)]="equip.ip_add">
+
+               </div>
+
+                  <div class="col-sm-6 form-group">
+                     <label>nom</label>
+                     <input type="text" class="form-control" id="airline"
+                            name="nom" [(ngModel)]="equip.nom">
+                  </div>
+               </div>
+              <div class="row">
+                  <div class="col-sm-6 form-group">
+                     <label>Emplacement</label>
+                     <input type="text" class="form-control" name="emplacement" [(ngModel)]="equip.emplacement">
+                  </div>
+
+                  <div class="col-sm-6 form-group">
+                     <label>address mac</label>
+                     <input type="text" class="form-control" name="mac_add"
+                     [(ngModel)]="equip.mac_add">
+                  </div>
+               </div>
+
+
+                 <div class="row">
+                  <div class="col-sm-6 form-group">
+                     <label>switch</label>
+                     <input type="text" class="form-control" name="switch"
+                     [(ngModel)]="equip.switch">
+                  </div>
+
+                 <div class="col-sm-6 form-group">
+                     <label>numéro de port</label>
+                     <input type="text" class="form-control" name="num_port"
+                     [(ngModel)]="equip.num_port">
+                  </div>
+                     </div>
+                    <div class="row">
+                      <div class="col-sm-6 form-group">
+                     <label>nombre de port</label>
+                     <input type="text" class="form-control" name="nbre_port"
+                     [(ngModel)]="equip.nbre_port">
+                  </div>
+
+                  <div class="col-sm-6 form-group">
+                     <label>etat</label>
+                    <select class="form-control" Name="etat"  [(ngModel)]="equip.etat" [ngModelOptions]="{standalone: true}">>
+                   <option *ngFor="let suit of etatSuits">{{suit}}</option>
+                </select>
+<!--                     <input type="text" class="form-control" name="etat"-->
+<!--                     [(ngModel)]="equip.etat">-->
+                  </div>
+                  </div>
+                  <div class="row">
+                <div class="col-sm-6 form-group">
+                  <label>Aireport</label>
+                <select class="form-control" Name="aeroport"  [(ngModel)]="equip.aeroport" [ngModelOptions]="{standalone: true}">>
+                   <option *ngFor="let suit of equipSuits">{{suit}}</option>
+                </select>
+                </div>
+
+            </div>
+              <br/>
+
+              <button type="submit" class="btn btn-lg btn-info">ajouter</button>
+            </div>
+         </form>
+      </div>
+   </div>
+</div>

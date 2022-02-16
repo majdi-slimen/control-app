@@ -1,0 +1,85 @@
+<!--<link rel="shortcut icon" href="">-->
+
+<!--<nav class="navbar  navbar-fixed-top navbar-light" style="background-color: #000000;" role="navigation">-->
+<!--        <div class="container">-->
+<!--&lt;!&ndash;           <div class="navbar-header">&ndash;&gt;-->
+<!--&lt;!&ndash;              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">&ndash;&gt;-->
+<!--&lt;!&ndash;              <span class="sr-only">Toggle navigation</span>&ndash;&gt;-->
+<!--&lt;!&ndash;              </button>&ndash;&gt;-->
+<!--&lt;!&ndash;              <a class="navbar-brand" href="#"><img src="assets/icon_plane.png" style="width:30px;"></a>&ndash;&gt;-->
+<!--&lt;!&ndash;           </div>&ndash;&gt;-->
+<!--           <div class="collapse navbar-collapse navbar-ex1-collapse">-->
+<!--              <ul class="nav navbar-nav">-->
+<!--                <li class="menu-item" routerLinkActive="active"><a routerLink="home" >Home</a></li>-->
+<!--                 <li class="menu-item" routerLinkActive="active"><a routerLink="equips" >Liste des équipments</a></li>-->
+<!--                 <li class="menu-item" routerLinkActive="active"><a routerLink="pannes" >Liste des pannes</a></li>-->
+<!--                 <li class="menu-item" routerLinkActive="active"><a routerLink="techniciens" >Liste des techniciens</a></li>-->
+<!--                 <ul class="nav navbar-nav">-->
+<!--                    <li class="menu-item" routerLinkActive="active"><a routerLink="add_equip" >Ajouter un équipement </a></li>-->
+<!--                    <li class="menu-item" routerLinkActive="active"><a routerLink="add_panne" >Ajouter une panne </a></li>-->
+<!--                    <li class="menu-item" routerLinkActive="active"><a routerLink="add_technicien" >Ajouter un technicien </a></li>-->
+<!--                 </ul>-->
+<!--              </ul>-->
+
+<!--           </div>-->
+<!--        </div>-->
+<!--</nav>-->
+
+
+
+<!-- -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+<!--Navbar-->
+<nav class="navbar navbar-inverse" role="navigation">
+  <div class="container-fluid">
+
+  <!-- Navbar brand -->
+  <a class="navbar-brand"  routerLinkActive="active" routerLink="home">Home</a>
+  <!-- Collapsible content -->
+
+  <div class="collapse navbar-collapse" id="basicExampleNav">
+
+    <!-- Links -->
+    <ul class="nav navbar-nav mr-auto">
+
+      <li class="nav-item"
+        class="nav-link"  routerLinkActive="active"><a routerLink="equips" >Liste des équipments</a>
+
+      </li>
+      <li class="nav-item"
+        class="nav-link"  routerLinkActive="active"><a routerLink="pannes" >Liste des pannes</a>
+
+      </li>
+      <li class="nav-item"
+        class="nav-link"  routerLinkActive="active"><a routerLink="techniciens" >Liste des techniciens</a>
+      </li>
+
+
+      <!-- Dropdown -->
+      <li class="dropdown">
+  <button class="btn btn-primary btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">Ajouter
+    <span class="caret"></span>
+  </button>
+  <ul class="list-group" class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+    <li  class="list-group-item list-group-item-info" role="presentation"><a role="menuitem" tabindex="-1" routerLink="add_equip" >Ajouter un équipement </a></li>
+    <li  class="list-group-item list-group-item-info" role="presentation"><a role="menuitem" tabindex="-1" routerLink="add_panne" >Ajouter une panne </a></li>
+    <li  class="list-group-item list-group-item-info" role="presentation"><a role="menuitem" tabindex="-1" routerLink="add_technicien" >Ajouter un technicien</a></li>
+  </ul>
+</li>
+
+    </ul>
+
+  </div>
+  <!-- Collapsible content -->
+  </div>
+</nav>
+<!--<mat-slider min="1" max="100" step="1" value="1"></mat-slider>-->
+
+<!--/.Navbar-->
+     <div style="margin-top:0px;">
+        <router-outlet></router-outlet>
+
+
+
+
+
+</div>

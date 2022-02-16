@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>edit panne</title>
+{% load static %}
+    <link rel="stylesheet" href="{% static  'css/style.css' %}"/>
+
+</head>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Home</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/equips/show">Liste des équipements</a></li>
+      <li><a href="/equips/show_panne">Liste des pannes</a></li>
+      <li><a href="/equips/show_technicien">Liste des techniciens</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-in"></span> Log-out</a></li>
+      <li><a href="/admin"><span class="glyphicon glyphicon-log-in"></span> Admin</a></li>
+
+    </ul>
+  </div>
+</nav>
+
+<body>
+<form method="POST" class="post-form" action="/equips/update_technicien/{{technicien.id}}">
+        {% csrf_token %}
+    <div class="container">
+<br>
+    <div class="form-group row">
+    <label class="col-sm-1 col-form-label"></label>
+    <div class="col-sm-4">
+    <h3>Update Details</h3>
+    </div>
+  </div>
+    <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Nom:</label>
+    <div class="col-sm-4">
+        <input type="text" name="nom" id="id_nom" required maxlength="20" value="{{ technicien.nom }}"/>
+    </div>
+  </div>
+
+
+    <div class="form-group row">
+    <label class="col-sm-1 col-form-label"></label>
+    <div class="col-sm-4">
+    <center><button type="submit" class="btn btn-success">Update</button></center>
+    </div>
+  </div>
+    </div>
+</form>
+</body>
+</html>

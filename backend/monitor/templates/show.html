@@ -1,0 +1,86 @@
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Moniteurs Records</title>
+{% load static %}
+    <link rel="stylesheet" href="{% static  'css/style.css' %}"/>
+
+</head>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Home</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/equips/show">Liste des équipements</a></li>
+      <li><a href="/equips/show_panne">Liste des pannes</a></li>
+      <li><a href="/equips/show_technicien">Liste des techniciens</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-in"></span> Log-out</a></li>
+      <li><a href="/admin"><span class="glyphicon glyphicon-log-in"></span> Admin</a></li>
+
+    </ul>
+  </div>
+</nav>
+
+<table id="customers">
+    <thead class="thead-dark">
+    <tr>
+        <th>ip_address</th>
+        <th>nom</th>
+        <th>emplacement</th>
+        <th>mac_address</th>
+        <th>Switch</th>
+        <th>numéro de port</th>
+        <th>nombre de ports</th>
+        <th>Etat</th>
+        <th>Aéreport</th>
+        <th>Actions</th>
+
+    </tr>
+    </thead>
+    <tbody class="table">
+    {% for equipement in equipements %}
+    <tr>
+        <td>{{ equipement.ip_add }}</td>
+        <td>{{ equipement.nom }}</td>
+        <td>{{ equipement.emplacement }}</td>
+        <td>{{ equipement.mac_add }}</td>
+        <td>{{ equipement.switch }}</td>
+        <td>{{ equipement.num_port }}</td>
+        <td>{{ equipement.nbre_port }}</td>
+        <td>{{ equipement.etat }}</td>
+        <td>{{ equipement.aeroport }}</td>
+        <td><b>
+            <form action="/equips/update/{{ equipement.id}}" >
+            <input type="submit" class="btn btn-success" value="Modifier">
+            </form>
+            <form action="/equips/delete/{{ equipement.id}}" >
+            <input type="submit" class="btn btn-danger" value="Supprimer">
+            </form>
+            <form action="/equips/shut/{{ equipement.id}}" >
+            <input type="submit" class="btn btn-primary" value="Restart">
+            </form></b>
+        </td>
+    </tr>
+{% endfor %}
+    </tbody>
+</table>
+<br>
+<br>
+<center><form action="/equips/equip" >
+    <input type="submit" class="btn-primary" value="Ajouter">
+</form></center>
+ <center><form action="/equips/ping2" >
+    <input type="submit" class="btn-danger" value="Equips_down">
+</form></center>
+
+</body>
+</html>

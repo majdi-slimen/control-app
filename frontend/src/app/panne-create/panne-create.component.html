@@ -1,0 +1,79 @@
+
+<div class="container-fluid">
+  <h3 *ngIf="success">Succesfully created!</h3>
+   <div class="container-fluid ">
+      <div class="row well center">
+         <form   (ngSubmit)="onSubmit()" >
+            <div class="col-sm-12">
+              <div class="row">
+                  <div class="col-sm-6 form-group">
+                     <label>ip_address </label>
+                     <input type="text" class="form-control"  name="ip" [(ngModel)]="panne.ip">
+
+               </div>
+
+
+
+
+
+                  <div class="col-sm-6 form-group">
+                     <label>Nature </label>
+                     <input type="text" class="form-control" name="fligh_no" [(ngModel)]="panne.nature">
+
+               </div>
+           </div>
+                <div class="row">
+                  <div class="col-sm-6 form-group">
+                     <label>date de panne</label>
+                     <input type="date" class="form-control" id="airline"
+                            name="airline" [(ngModel)]="panne.date_panne">
+                  </div>
+                  <div class="col-sm-6 form-group">
+                     <label>date de reparation</label>
+                     <input type="date" class="form-control" name="fligh_no" [(ngModel)]="panne.date_reparation">
+                  </div>
+                                 </div>
+                           <div class="row">
+
+                <div class="col-sm-6 form-group">
+                  <label>Technicien</label>
+                <select class="form-control" name="name"  [(ngModel)]="panne.technicien" [ngModelOptions]="{standalone: true}">>
+                   <option *ngFor="let suit of techSuits">{{suit}}</option>
+                </select>
+                </div>
+
+
+
+
+
+                  <div class="col-sm-6 form-group">
+                     <label>Remarque</label>
+                     <input type="text" class="form-control" name="return_date"
+                     [(ngModel)]="panne.remarque">
+                  </div>
+
+                    </div>
+              <div>
+               <button type="submit" class="btn btn-lg btn-info">ajouter</button>
+            </div>
+            </div>
+         </form>
+<!--        <form [formGroup]="form" (ngSubmit)="submit()">-->
+
+<!--        <div class="form-group">-->
+<!--            <label *ngfor="technicien">Website:</label>-->
+<!--            <select formControlName="website" class="form-control">-->
+<!--                <option disabled>Select Website</option>-->
+<!--                <option>Choose Website</option>-->
+<!--                <option *ngFor="let web of technicienList">{{web}}</option>-->
+<!--            </select>-->
+<!--            <div *ngIf="f.technicien.touched && f.technicien.invalid" class="alert alert-danger">-->
+<!--                <div *ngIf="f.technicien.errors.required">Name is required.</div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>-->
+<!--    </form>-->
+      </div>
+   </div>
+</div>

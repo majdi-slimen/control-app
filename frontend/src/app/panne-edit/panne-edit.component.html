@@ -1,0 +1,61 @@
+
+
+
+<div class="container-fluid">
+  <h3 *ngIf="success">Succesfully updated!</h3>
+  <div class="container-fluid ">
+      <div class="row well center">
+         <form (ngSubmit)="onSubmit()" >
+           <div class="col-sm-12">
+              <div *ngIf="panne" class="row">
+                  <div class="col-sm-6 form-group">
+                     <label>ip_address </label>
+                     <input type="text" class="form-control" name="ip"   [(ngModel)]="panne.ip">
+
+                  </div>
+
+                      <div class="col-sm-6 form-group">
+                     <label>Nature</label>
+                     <input type="text" class="form-control" name="nature" [(ngModel)]="panne.nature">
+
+                  </div>
+
+                </div>
+               <div *ngIf="panne" class="row">
+
+
+                  <div class="col-sm-6 form-group">
+                     <label>date de panne</label>
+                     <input type="date" class="form-control" id="airline"
+                            name="airline" [(ngModel)]="panne.date_panne">
+                   </div>
+
+
+                  <div class="col-sm-6 form-group">
+                     <label>date de reparation</label>
+                     <input type="date" class="form-control" name="fligh_no" [(ngModel)]="panne.date_reparation">
+                  </div>
+                  </div>
+                   <div *ngIf="panne" class="row">
+                 <div class="col-sm-6 form-group">
+                      <label>Technicien</label>
+                   <select class="form-control" Name="name"  [(ngModel)]="panne.technicien" [ngModelOptions]="{standalone: true}">
+                     <option *ngFor="let suit of techSuits">{{suit}}</option>
+                   </select>
+                </div>
+
+
+
+
+                  <div class="col-sm-6 form-group">
+                     <label>remarque</label>
+                     <input type="text" class="form-control" name="return_date"
+                     [(ngModel)]="panne.remarque">
+                  </div></div>
+             <button type="submit" class="btn btn-lg btn-info"> Submit</button>
+            </div>
+         </form>
+      </div>
+   </div>
+</div>
+

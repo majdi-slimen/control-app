@@ -1,0 +1,23 @@
+
+<div class="container-fluid">
+
+  <h3 *ngIf="success">Succesfully created!</h3>
+   <div class="container-fluid ">
+      <div class="row well center">
+         <form (ngSubmit)="onSubmit()" >
+            <div class="col-sm-12">
+              <div class="row">
+                  <div class="col-sm-6 form-group">
+                     <label>Nom </label>
+                     <input type="text" class="form-control" name="fligh_no" [(ngModel)]="technicien.nom">
+
+               </div>
+                <br/>
+                <!--br nous sert à créer des retours à la ligne-->
+                <button type="submit" class="btn btn-lg btn-info">ajouter</button>
+            </div>
+            </div>
+         </form>
+      </div>
+   </div>
+</div>
